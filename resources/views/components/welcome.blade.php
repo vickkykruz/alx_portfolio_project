@@ -1,7 +1,53 @@
 <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
-    <x-application-logo class="block h-12 w-auto" />
+    {{-- <x-application-logo class="block h-12 w-auto" /> --}}
+    <div class="container mx-auto px-4 md:container md:mx-auto">
+        <div class="flex flex-row flex-wrap justify-between items-center">
+            <div class="grow" style="width: 70%">
+                <h1 class="mb-4 text-lg font-semibold text-gray-900 antialiased">
+                    Good Evening Victor Chukwemeka
+                </h1>
+                <hr style="margin-top: -5px;"/>
 
-    <h1 class="mt-8 text-2xl font-medium text-gray-900">
+                <h4 class="mb-4 mt-3 text-lg font-semibold text-gray-900 antialiased">
+                    Notifications:
+                </h4>
+                <table class="table-fixed hover:table-fixed p-2" style="width: 70%">
+                    <tbody>
+                      <tr>
+                        <td class="border border-bottom border-slate-700">The Sliding Mr. Bones (Next Stop, Pottersville)</td>
+                        <td class="border border-bottom border-slate-700">14th Feb 2024</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-bottom border-slate-700">Witchy Woman</td>
+                        <td class="border border-bottom border-slate-700">14th Feb 2024</td>
+                      </tr>
+                      <tr>
+                        <td class="border border-bottom border-slate-700">Shining Star</td>
+                        <td class="border border-bottom border-slate-700">15th Feb 2024</td>
+                      </tr>
+                    </tbody>
+                </table>
+
+                <a href="#" class="inline-block rounded-md border border-transparent bg-indigo-600 px-2 py-2 mt-8 text-center font-medium text-white hover:bg-indigo-700" style="width: 85%;">Go To DashBoard</a>
+            </div>
+            <div class="flex-none" style="width:30%;">
+                <div class="">
+                    <div class="user-img" style="display:flex; justify-content:center" >
+                        <img src="{{ asset('build/assets/images/Liza-happy-cat-with-laptop-in-christmas-costume-drinking-tea-2f6120ee-b8e0-4f56-8d70-e0bad66f07ee-1.jpg') }}" alt="" class="rounded-lg object-cover object-center" style="width: 150px; height: 150px;">
+                    </div>
+                    <div class="user-bio mt-2">
+                        <p class="text-sm font-medium">I'm a software engineer, who specilise on finding solution to real world project and enjoys building and developing web and mobile applications
+                            my stack are Python, PHP, C, Typescript, Laravel, Javascript and MySQL with other ibraries and technologies...  
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+
+    {{-- <h1 class="mt-8 text-2xl font-medium text-gray-900">
         Welcome to your Jetstream application!
     </h1>
 
@@ -10,10 +56,10 @@
         to help you build your application using a development environment that is simple, powerful, and enjoyable. We believe
         you should love expressing your creativity through programming, so we have spent time carefully crafting the Laravel
         ecosystem to be a breath of fresh air. We hope you love it.
-    </p>
+    </p> --}}
 </div>
 
-<div class="bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-8">
+{{-- <div class="bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-8">
     <div>
         <div class="flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-6 h-6 stroke-gray-400">
@@ -93,4 +139,4 @@
             Authentication and registration views are included with Laravel Jetstream, as well as support for user email verification and resetting forgotten passwords. So, you're free to get started with what matters most: building your application.
         </p>
     </div>
-</div>
+</div> --}}

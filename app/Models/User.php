@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Str;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
@@ -58,4 +59,16 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    /**
+     * Use the "creating" event to set 'bind_id'
+     */
+    // protected static function boot()
+    // {
+    //     parent::boot();
+
+    //     static::creating(function ($user) {
+    //         $user->bind_id = $user->bind_id ?? (string) Str::uuid();
+    //     });
+    // }
 }
