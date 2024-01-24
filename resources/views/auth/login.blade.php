@@ -3,7 +3,7 @@
         <x-slot name="logo">
             <x-authentication-card-logo />
         </x-slot>
-
+        @livewire('livewire.livewire.googleAuth')
         <x-validation-errors class="mb-4" />
 
         @if (session('status'))
@@ -42,6 +42,11 @@
                 <x-button class="ms-4">
                     {{ __('Log in') }}
                 </x-button>
+            </div>
+            <div class=" mt-2 text-center">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('index') }}">
+                    {{ __('Go Home') }}
+                </a>
             </div>
         </form>
     </x-authentication-card>

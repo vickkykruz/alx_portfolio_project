@@ -1,7 +1,9 @@
 <?php
 
+use App\Livewire\Auth\Providers;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ViewController\HomeController;
+use App\Http\Controllers\UserController\DashBoardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,16 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+
+// Google Authentication Routes
+Route::get('/auth/{provider}/redirect', [Providers::class, 'redirectToGoogle']);
+Route::get('/auth/{provider}/callback', [Providers::class, 'handleGoogleCallback']);
+
+// USER ROUTES
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
+    Route::get('/dashboard/{bind_id}', [DashBoardController::class, 'index'])->name('client.dashboard')->where([
+        'bind_id' => '[a-f/d-]+'
+    ]);
 });
