@@ -47,12 +47,8 @@ class Providers extends Component
 
             }else {
 
-                // Genrate a new ID
-                $client_newId = Str::uuid();
-
                 // We are excepting the user is a new user
                 $newUser = $createNewUser->create([
-                    'bind_id' => $client_newId,
                     'name' => $user->getName(),
                     'email' => $user->getEmail(),
                     'password' => $user->getId(),
