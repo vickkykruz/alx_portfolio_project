@@ -24,7 +24,5 @@ Route::get('/auth/{provider}/callback', [Providers::class, 'handleGoogleCallback
 
 // USER ROUTES
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified',])->group(function () {
-    Route::get('/dashboard/{bind_id}', [DashBoardController::class, 'index'])->name('client.dashboard')->where([
-        'bind_id' => '[a-f/d-]+'
-    ]);
+    Route::get('/dashboard', [DashBoardController::class, 'index'])->name('dashboard');
 });

@@ -1,142 +1,56 @@
 <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
-    {{-- <x-application-logo class="block h-12 w-auto" /> --}}
-    <div class="container mx-auto px-4 md:container md:mx-auto">
-        <div class="flex flex-row flex-wrap justify-between items-center">
-            <div class="grow" style="width: 70%">
-                <h1 class="mb-4 text-lg font-semibold text-gray-900 antialiased">
-                    Good Evening Victor Chukwemeka
-                </h1>
-                <hr style="margin-top: -5px;"/>
 
-                <h4 class="mb-4 mt-3 text-lg font-semibold text-gray-900 antialiased">
-                    Notifications:
-                </h4>
-                <table class="table-fixed hover:table-fixed p-2" style="width: 70%">
-                    <tbody>
-                      <tr>
-                        <td class="border border-bottom border-slate-700">The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-                        <td class="border border-bottom border-slate-700">14th Feb 2024</td>
-                      </tr>
-                      <tr>
-                        <td class="border border-bottom border-slate-700">Witchy Woman</td>
-                        <td class="border border-bottom border-slate-700">14th Feb 2024</td>
-                      </tr>
-                      <tr>
-                        <td class="border border-bottom border-slate-700">Shining Star</td>
-                        <td class="border border-bottom border-slate-700">15th Feb 2024</td>
-                      </tr>
-                    </tbody>
-                </table>
-
-                <a href="#" class="inline-block rounded-md border border-transparent bg-indigo-600 px-2 py-2 mt-8 text-center font-medium text-white hover:bg-indigo-700" style="width: 85%;">Go To DashBoard</a>
-            </div>
-            <div class="flex-none" style="width:30%;">
-                <div class="">
-                    <div class="user-img" style="display:flex; justify-content:center" >
-                        <img src="{{ asset('build/assets/images/Liza-happy-cat-with-laptop-in-christmas-costume-drinking-tea-2f6120ee-b8e0-4f56-8d70-e0bad66f07ee-1.jpg') }}" alt="" class="rounded-lg object-cover object-center" style="width: 150px; height: 150px;">
-                    </div>
-                    <div class="user-bio mt-2">
-                        <p class="text-sm font-medium">I'm a software engineer, who specilise on finding solution to real world project and enjoys building and developing web and mobile applications
-                            my stack are Python, PHP, C, Typescript, Laravel, Javascript and MySQL with other ibraries and technologies...  
-                        </p>
-                    </div>
-                </div>
-            </div>
+    <div class="stepper mb-8" style="display:flex; justify-content:center">
+        <div class="stepper-center">
+            <ol class="items-center w-full space-y-4 sm:flex sm:space-x-8 sm:space-y-0 rtl:space-x-reverse">
+                <li class="flex items-center text-blue-600 dark:text-blue-500 space-x-2.5 rtl:space-x-reverse">
+                    <span class="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 dark:border-blue-500">
+                        1
+                    </span>
+                    <span>
+                        <h3 class="font-medium leading-tight">Account Creation</h3>
+                        <p class="text-sm">Step details here</p>
+                    </span>
+                </li>
+                <li class="flex items-center text-blue-600 dark:text-blue-500 space-x-2.5 rtl:space-x-reverse">
+                    <span class="flex items-center justify-center w-8 h-8 border border-blue-600 rounded-full shrink-0 dark:border-blue-500">
+                        2
+                    </span>
+                    <span>
+                        <h3 class="font-medium leading-tight">User info</h3>
+                        <p class="text-sm">Step details here</p>
+                    </span>
+                </li>
+                <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                    <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                        3
+                    </span>
+                    <span>
+                        <h3 class="font-medium leading-tight">Contact Verification</h3>
+                        <p class="text-sm">Step details here</p>
+                    </span>
+                </li>
+                <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                    <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                        4
+                    </span>
+                    <span>
+                        <h3 class="font-medium leading-tight">Company info</h3>
+                        <p class="text-sm">Step details here</p>
+                    </span>
+                </li>
+                <li class="flex items-center text-gray-500 dark:text-gray-400 space-x-2.5 rtl:space-x-reverse">
+                    <span class="flex items-center justify-center w-8 h-8 border border-gray-500 rounded-full shrink-0 dark:border-gray-400">
+                        5
+                    </span>
+                    <span>
+                        <h3 class="font-medium leading-tight">Go to Dashboard</h3>
+                        <p class="text-sm">Step details here</p>
+                    </span>
+                </li>
+            </ol>
         </div>
-        
-        
     </div>
 
-    {{-- <h1 class="mt-8 text-2xl font-medium text-gray-900">
-        Welcome to your Jetstream application!
-    </h1>
-
-    <p class="mt-6 text-gray-500 leading-relaxed">
-        Laravel Jetstream provides a beautiful, robust starting point for your next Laravel application. Laravel is designed
-        to help you build your application using a development environment that is simple, powerful, and enjoyable. We believe
-        you should love expressing your creativity through programming, so we have spent time carefully crafting the Laravel
-        ecosystem to be a breath of fresh air. We hope you love it.
-    </p> --}}
+    @livewire('user-form-info', ['userData' => $userData])
 </div>
-
-{{-- <div class="bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 p-6 lg:p-8">
-    <div>
-        <div class="flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-6 h-6 stroke-gray-400">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-            </svg>
-            <h2 class="ms-3 text-xl font-semibold text-gray-900">
-                <a href="https://laravel.com/docs">Documentation</a>
-            </h2>
-        </div>
-
-        <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-            Laravel has wonderful documentation covering every aspect of the framework. Whether you're new to the framework or have previous experience, we recommend reading all of the documentation from beginning to end.
-        </p>
-
-        <p class="mt-4 text-sm">
-            <a href="https://laravel.com/docs" class="inline-flex items-center font-semibold text-indigo-700">
-                Explore the documentation
-
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="ms-1 w-5 h-5 fill-indigo-500">
-                    <path fill-rule="evenodd" d="M5 10a.75.75 0 01.75-.75h6.638L10.23 7.29a.75.75 0 111.04-1.08l3.5 3.25a.75.75 0 010 1.08l-3.5 3.25a.75.75 0 11-1.04-1.08l2.158-1.96H5.75A.75.75 0 015 10z" clip-rule="evenodd" />
-                </svg>
-            </a>
-        </p>
-    </div>
-
-    <div>
-        <div class="flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-6 h-6 stroke-gray-400">
-                <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
-            </svg>
-            <h2 class="ms-3 text-xl font-semibold text-gray-900">
-                <a href="https://laracasts.com">Laracasts</a>
-            </h2>
-        </div>
-
-        <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-            Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-        </p>
-
-        <p class="mt-4 text-sm">
-            <a href="https://laracasts.com" class="inline-flex items-center font-semibold text-indigo-700">
-                Start watching Laracasts
-
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="ms-1 w-5 h-5 fill-indigo-500">
-                    <path fill-rule="evenodd" d="M5 10a.75.75 0 01.75-.75h6.638L10.23 7.29a.75.75 0 111.04-1.08l3.5 3.25a.75.75 0 010 1.08l-3.5 3.25a.75.75 0 11-1.04-1.08l2.158-1.96H5.75A.75.75 0 015 10z" clip-rule="evenodd" />
-                </svg>
-            </a>
-        </p>
-    </div>
-
-    <div>
-        <div class="flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-6 h-6 stroke-gray-400">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-            </svg>
-            <h2 class="ms-3 text-xl font-semibold text-gray-900">
-                <a href="https://tailwindcss.com/">Tailwind</a>
-            </h2>
-        </div>
-
-        <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-            Laravel Jetstream is built with Tailwind, an amazing utility first CSS framework that doesn't get in your way. You'll be amazed how easily you can build and maintain fresh, modern designs with this wonderful framework at your fingertips.
-        </p>
-    </div>
-
-    <div>
-        <div class="flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" class="w-6 h-6 stroke-gray-400">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-            </svg>
-            <h2 class="ms-3 text-xl font-semibold text-gray-900">
-                Authentication
-            </h2>
-        </div>
-
-        <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-            Authentication and registration views are included with Laravel Jetstream, as well as support for user email verification and resetting forgotten passwords. So, you're free to get started with what matters most: building your application.
-        </p>
-    </div>
-</div> --}}

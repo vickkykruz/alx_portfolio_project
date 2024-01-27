@@ -28,7 +28,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'bind_id'
+        'bind_id',
+        'profile_photo_path'
     ];
 
     /**
@@ -60,16 +61,4 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-
-    /**
-     * Use the "creating" event to set 'bind_id'
-     */
-    // protected static function boot()
-    // {
-    //     parent::boot();
-
-    //     static::creating(function ($user) {
-    //         $user->bind_id = $user->bind_id ?? (string) Str::uuid();
-    //     });
-    // }
 }

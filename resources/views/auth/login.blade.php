@@ -3,7 +3,7 @@
         <x-slot name="logo">
             <x-authentication-card-logo />
         </x-slot>
-        @livewire('livewire.livewire.googleAuth')
+        @livewire('auth.providers')
         <x-validation-errors class="mb-4" />
 
         @if (session('status'))

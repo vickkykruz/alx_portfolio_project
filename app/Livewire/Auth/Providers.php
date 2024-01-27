@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Hash;
 
 class Providers extends Component
 {
@@ -26,44 +27,36 @@ class Providers extends Component
     {
         $user = Socialite::driver($provider)->user();
 
-        // dd($user);
-
         // if user was fetched successfully
         if (!empty($user)) {
+            // Define the variable
+            $clinetId = $user->getId();
+            $clientName = $user->getName();
+            $clientEmail = $user->getEmail();
+            $clientProfile = $user->getAvatar();
+            $emailVeriftyAt = $user->email_verified_at;
 
             // Implement the login to handle the user
-            $existing_user = User::where('email', $user->getEmail())->first();
+            $existing_user = User::where('email', $clientEmail)->first();
 
             // If the user exist
             if ($existing_user) {
-
-                // dd('Yes Existing user');
-                // Fetch the user Id
-                $client_id = $existing_user['bind_id'];
-
                 // Grand the user access
                 Auth::login($existing_user);
-                return redirect('client.dashboard', ['bind_id' => $client_id]);
-
+                return redirect()->route('dashboard');
             }else {
-
-                // Genrate a new ID
-                $client_newId = Str::uuid();
-
                 // We are excepting the user is a new user
-                $newUser = $createNewUser->create([
-                    'bind_id' => $client_newId,
-                    'name' => $user->getName(),
-                    'email' => $user->getEmail(),
-                    'password' => $user->getId(),
-                    'profile_photo_path' => $user->getAvatar(),
+                $user = User::Create([
+                    'name' => $clientName,
+                    'email' => $clientEmail,
+                    'password' => Hash::make($clinetId),
+                    'bind_id' => Str::uuid(),
+                    'profile_photo_path' => $clientProfile,
+                    'email_verified_at' => $emailVeriftyAt,
                 ]);
 
-                dd('Inserted into the database');
-
-                // Grand access to the new user
-                // Auth::login($newUser);
-                // return redirect('client.dashboard', ['bind_id' => $client_newId]);
+                Auth::login($user);
+                return redirect()->route('dashboard');
             }
         }
         return redirect()->route('/login');

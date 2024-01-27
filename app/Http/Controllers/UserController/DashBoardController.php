@@ -11,6 +11,11 @@ class DashBoardController extends Controller
     //
     public function index (): View
     {
-        return view('dashboard');
+        // Retrieve the authenticated user
+        $user = auth()->user();
+
+        return view('dashboard', [
+            'user' => $user
+        ]);
     }
 }
