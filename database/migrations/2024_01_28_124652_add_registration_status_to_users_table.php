@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->uuid('bind_id')->after('email')->unique()->nullable();
+            $table->boolean('registration_status')->after('bind_id')->default(false);
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('bind_id');
+            $table->dropColumn('registration_status');
         });
     }
 };
