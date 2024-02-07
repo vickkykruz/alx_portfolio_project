@@ -6,8 +6,11 @@ use App\Services\PhoneValidationService;
 use Livewire\Component;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 use libphonenumber\PhoneNumberUtil;
 use libphonenumber\PhoneNumberFormat;
+use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class VerifyUserContant extends Component
 {
@@ -102,7 +105,43 @@ class VerifyUserContant extends Component
 
     public function saveNewNumber()
     {
-        dd($this->insertNewNumber);
+        // Update the user mobile number
+        DB::table('user_infos')
+        ->where('clientID', '=', $this->userInfo->clientID) // Replace with your actual condition
+        ->update(['mobileNumber' => $this->insertNewNumber]);
+
+        // Return the font-end to default
+        $this->showModal = false;
+        $this->phoneVerifiedStatus = '';
+    }
+
+    public function saveDetails(Request $request)
+    {
+        // Retreive the user information
+        $user = auth()->user();
+        $user_client_id = $user->bind_id;
+
+        $vaildate = $request->validate([
+            'verifyEmail' => 'required',
+            'verifyPhone' => 'required',
+        ]);
+
+        if ($vaildate['verifyEmail'] != 'Verified' || $vaildate['verifyPhone'] != 'Verified')
+        {
+            $errorMessage = 'Ensure you validate your email and mobile number before you continue';
+            return redirect()->back()->with(['errorMessage' => $errorMessage]);
+        }else {            
+            // Insert the status of the contact
+            DB::table('verify_contacts')->insert([
+                'clientID' => $user_client_id,
+                'email_verify_status' => $vaildate['verifyEmail'],
+                'mobile_number_verify_status' => $vaildate['verifyPhone'],
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ]);
+
+            return redirect()->route('dashboard');
+        }
     }
 
     public function render()

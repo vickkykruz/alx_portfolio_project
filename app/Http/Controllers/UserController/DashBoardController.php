@@ -25,13 +25,28 @@ class DashBoardController extends Controller
 
             if ($userInfo_status)
             {
-                // Check the verified contanct
+                // Check if the user has uploaded their information
+                $contact_verify_status = DB::table('verify_contacts')->where(['clientID' => $user_client_id ])->first();
+
+                if ($contact_verify_status)
+                {
+                    // Redirect the user to the comapay info
+                    return view('dashboard', [
+                        'user' => $user,
+                        'register_status' => '4',
+                        'user_info' => $userInfo_status,
+                    ]);
+                }
+
+                // Redirct to the verified contact Page
                 return view('dashboard', [
                     'user' => $user,
                     'register_status' => '3',
-                    'user_info' => $userInfo_status, 
+                    'user_info' => $userInfo_status,
                 ]);
             }
+
+            // Redirect the user to upload personal info
             return view('dashboard', [
                 'user' => $user,
                 'register_status' => '2',
@@ -39,6 +54,7 @@ class DashBoardController extends Controller
             ]);
         }
 
+        // Redirect the user to the weclome page
         return view('dashboard', [
             'user' => $user,
             'register_status' => '5',

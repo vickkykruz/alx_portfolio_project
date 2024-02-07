@@ -68,15 +68,50 @@
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
               </svg>
             </button>
+        </div>
+        @elseif ($phoneVerifiedStatus == 'true')
+        <div id="alert-3" class="flex items-center p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
+            <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+            </svg>
+            <span class="sr-only">Info</span>
+            <div class="ms-3 text-sm font-medium">
+              Vaild Mobile Number. Click on <b>Continue</b> to move to the next step.
+            </div>
+            <button type="button" class="ms-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-green-400 dark:hover:bg-gray-700" data-dismiss-target="#alert-3" aria-label="Close">
+              <span class="sr-only">Close</span>
+              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+              </svg>
+            </button>
           </div>
         @endif
+
+        @if (session()->has('errorMessage'))
+        <div id="alert-2" class="flex items-center p-4 mb-4 text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+            <svg class="flex-shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+            </svg>
+            <span class="sr-only">Info</span>
+            <div class="ms-3 text-sm font-medium">
+              {{ session('errorMessage') }}
+            </div>
+            <button type="button" class="ms-auto -mx-1.5 -my-1.5 bg-red-50 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex items-center justify-center h-8 w-8 dark:bg-gray-800 dark:text-red-400 dark:hover:bg-gray-700" data-dismiss-target="#alert-2" aria-label="Close">
+              <span class="sr-only">Close</span>
+              <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+              </svg>
+            </button>
+          </div>
+        @endif
+        
         <ul class="w-full divide-y divide-gray-200">
             <li class="pb-3 sm:pb-4 w-full">
                 <div class="flex w-full items-center space-x-4 rtl:space-x-reverse">
                     <div class="flex-shrink-0">
                         <svg class="w-12 h-12 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
-                          </svg>
+                        </svg>
 
                     </div>
                     <div class="flex-1 min-w-0">
@@ -91,12 +126,10 @@
                         {{-- Submit Button --}}
                         <div class="md:col-span-5 text-right">
                             @if (Auth::user()->hasVerifiedEmail())
-                                <input type="hidden" wire:model="verifiedEmail" value="Verified">
                                 <div class="inline-flex items-end">
-                                    <button type="button" disabled class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Verifed</button>
+                                    <button type="button" disabled class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Verified</button>
                                 </div>
                             @else
-                                <input type="hidden" wire:model="verifyEmail" value="Not Verified">
                                 <div class="inline-flex items-end">
                                     <button wire:click="verifyEmail" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Verify your Email Address</button>
                                 </div>
@@ -112,7 +145,7 @@
                     <div class="flex-shrink-0">
                         <svg class="w-10 h-10 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
-                          </svg>
+                        </svg>
 
                     </div>
                     <div class="flex-1 min-w-0">
@@ -120,7 +153,7 @@
                             Mobile Number Verification
                         </p>
                         <p style="margin-left: 5px;" class="text-sm text-gray-500 truncate dark:text-gray-400">
-                            Click on <b>Verify Phone Number</b> to verify this phone number <span class="text-muted">{{ $formattedPhoneNumber }} {{ $phoneVerifiedStatus }}</span>
+                            Click on <b>Verify Phone Number</b> to verify this phone number <span class="text-muted">{{ $formattedPhoneNumber }}</span>
                         </p>
                     </div>
                     <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
@@ -128,10 +161,8 @@
                         <div class="md:col-span-5 text-right">
                             <div class="inline-flex items-end">
                                 @if ($phoneVerifiedStatus == 'true')
-                                    <input type="hidden" wire:model="verifyPhone" value="Verified">
                                     <button type="button" disabled class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Verified</button>
                                 @elseif ($phoneVerifiedStatus === 'false')
-                                    <input type="hidden" wire:model="verifyPhone" value="Not Verified">
                                     <button type="button" data-modal-target="static-modal" data-modal-toggle="static-modal" wire:click="toggleModal" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Edit Mobile Number</button>
 
                                     <div id="static-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="{{ $showModal ? '' : 'hidden' }} fixed top-0 right-0 bottom-0 left-0 flex items-center justify-center bg-black bg-opacity-50">
@@ -181,7 +212,6 @@
                                         </div>
                                     </div>
                                 @else
-                                    <input type="hidden" wire:model="verifyPhone" value="Not Verified">
                                     <button wire:click="verifyPhoneNumber({{ $userInfo->countryPhoneCode .''. $userInfo->mobileNumber }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Verifiy your Phone Number</button>
                                 @endif
                             </div>
@@ -192,12 +222,32 @@
             </li>
         </ul>
 
-        {{-- Submit --}}
-        <div class="md:col-span-5 text-right mt-10">
-            <div class="inline-flex items-end">
-                <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 disabled px-4 rounded">Continue</button>
+        {{-- Submit the request --}}
+        <form action="{{ route('post_request_contact_verify_status') }}" method="post">
+            @csrf
+            {{-- Status for email --}}
+            @if (Auth::user()->hasVerifiedEmail())
+                <input type="hidden" name="verifyEmail" value="Verified">
+            @else
+                <input type="hidden" name="verifyEmail" value="Not Verified">
+            @endif
+
+            {{-- Status for mobile Number --}}
+            @if ($phoneVerifiedStatus == 'true')
+                <input type="hidden" name="verifyPhone" value="Verified">
+            @elseif ($phoneVerifiedStatus === 'false')
+                <input type="hidden" name="verifyPhone" value="Not Verified">
+            @else
+                <input type="hidden" name="verifyPhone" value="Not Verified">
+            @endif
+
+            {{-- Submit Button --}}
+            <div class="md:col-span-5 text-right mt-10">
+                <div class="inline-flex items-end">
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 disabled px-4 rounded">Continue</button>
+                </div>
             </div>
-        </div>
+        </form>
 
     </div>
 
