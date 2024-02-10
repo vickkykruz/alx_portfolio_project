@@ -8,7 +8,7 @@
             @livewire('verify-user-contant', ['userData' => $userData, 'userInfo' => $userInfo])
             @break
         @case(4)
-            @livewire('company-info', ['userData' => $userData, 'userInfo' => $userInfo])
+            @livewire('user-company-info', ['userData' => $userData, 'userInfo' => $userInfo])
         @break
 
         @default

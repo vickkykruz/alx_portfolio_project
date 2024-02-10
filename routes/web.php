@@ -1,11 +1,11 @@
 <?php
 
-use App\Livewire\Auth\Providers;
+use App\Http\Livewire\Auth\Providers;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ViewController\HomeController;
 use App\Http\Controllers\UserController\DashBoardController;
-use App\Livewire\UserFormInfo;
-use App\Livewire\VerifyUserContant;
+use App\Http\Livewire\UserFormInfo;
+use App\Http\Livewire\VerifyUserContant;
 /*
 |--------------------------------------------------------------------------
 | Web Routes

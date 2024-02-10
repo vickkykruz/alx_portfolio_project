@@ -1,24 +1,35 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
-class LocationList extends Component
+class UserRecruiterForm extends Component
 {
     public $countries;
-    public $selectedcountry;
+    public $selectedcountries;
+    public $selectedStates;
+    public $selectedOption;
     public $states;
-    public $selectedstate;
     public $cities;
-    public $selectedcity;
-
     public function mount ()
     {
         $authToken = $this->getAccessToken();
         $this->countries = $this->getCountries($authToken);
+        $this->selectedcountries = [];
+        $this->selectedStates = [];
+    }
+    // Livewire Update life cycle Hook
+    public function updatedSelectedCountries()
+    {
+        $this->emit('domUpdated');
+    }
+
+    public function updatedSelectedState()
+    {
+        $this->emit('domUpdate');
     }
 
     private function getAccessToken()
@@ -32,9 +43,9 @@ class LocationList extends Component
         }catch(\Exception $e) {
             // Handle the exception (e.g., log, display an error message, etc.)
             Log::error('Error fetching countries: ' . $e->getMessage());
-            $this->countries = []; 
+            $this->countries = [];
         };
-        
+
         return $response->json()['auth_token'];
     }
 
@@ -52,8 +63,13 @@ class LocationList extends Component
     public function getStates()
     {
         try {
-            $authToken = $this->getAccessToken();
-            $this->states = $this->fetchStates($authToken, $this->selectedcountry);
+            foreach($this->selectedCountries as $selectedCountry)
+            {
+                $authToken = $this->getAccessToken();
+                $Outputstates = $this->fetchStates($authToken, $selectedCountry);
+                $allStates[$selectedCountry] = $Outputstates;
+            }
+            $this->states = $allStates;
         }catch (\Exception $e) {
            Log::error('Error fetching countries: ' . $e->getMessage());
            $this->states = [];
@@ -74,11 +90,16 @@ class LocationList extends Component
     public function getCities()
     {
         try {
-            $authToken = $this->getAccessToken();
-            $this->cities = $this->fetchCities($authToken, $this->selectedstate);
+            foreach($this->selectedStates as $selectedState)
+            {
+                $authToken = $this->getAccessToken();
+                $outputCities = $this->fetchCities($authToken, $selectedState);
+                $allCities[$selectedState] = $outputCities;
+            }
+            $this->cities = $allCities;
         }catch (\Exception $e) {
-            Log::error('Error fetching countries: ' . $e->getMessage());
-            $this->cities = [];
+           Log::error('Error fetching countries: ' . $e->getMessage());
+           $this->cities = [];
         };
     }
 
@@ -100,9 +121,8 @@ class LocationList extends Component
             throw new \Exception('API request failed. ' . $errorMessage);
         }
     }
-
     public function render()
     {
-        return view('livewire.location-list');
+        return view('livewire.user-recruiter-form');
     }
 }

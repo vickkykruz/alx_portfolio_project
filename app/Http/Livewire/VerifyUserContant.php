@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Http\Livewire;
 
 use App\Services\PhoneValidationService;
 use Livewire\Component;
@@ -19,7 +19,7 @@ class VerifyUserContant extends Component
     public $insertNewNumber;
     public $formattedPhoneNumber;
     public $userData;
-    public $userInfo;
+    protected $userInfo;
     public $phoneVerifiedStatus;
     public $verifyEmail;
     public $verifyPhone;
@@ -42,6 +42,11 @@ class VerifyUserContant extends Component
 
         // Format the phone number
         $this->formattedPhoneNumber = $phoneUtil->format($numberProto, PhoneNumberFormat::INTERNATIONAL);
+    }
+
+    public function getUserInfo()
+    {
+        return $this->userInfo;
     }
 
     public function verifyPhoneNumber(PhoneValidationService $phoneValidationService, $phoneNumber)
@@ -130,7 +135,7 @@ class VerifyUserContant extends Component
         {
             $errorMessage = 'Ensure you validate your email and mobile number before you continue';
             return redirect()->back()->with(['errorMessage' => $errorMessage]);
-        }else {            
+        }else {
             // Insert the status of the contact
             DB::table('verify_contacts')->insert([
                 'clientID' => $user_client_id,
@@ -146,6 +151,8 @@ class VerifyUserContant extends Component
 
     public function render()
     {
-        return view('livewire.verify-user-contant');
+        return view('livewire.verify-user-contant', [
+            'userInfo' => $this->getUserInfo(),
+        ]);
     }
 }

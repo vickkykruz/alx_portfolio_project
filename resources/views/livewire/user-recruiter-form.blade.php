@@ -1,5 +1,5 @@
 <div>
-    {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
+    {{-- Because she competes with no one, no one can compete with her. --}}
     <div class="mt-2">
         <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
             <div class="text-gray-600">
@@ -78,7 +78,7 @@
                         <h5 class="text-sm mb-2 font-semibold text-gray-900 card-title">Preferred Job Location(s)</h5>
                         <div class="flex flex-row justify-around items-center mb-3 gap-3 w-full">
                             <div class="md:w-2/5">
-                                <select wire:model="selectedcountries" wire:change="getStates" id="selectedcountries" name="selectedcountries[]" data-te-select-init wire:after="reinitializeSelect" multiple class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                <select wire:model="selectedcountries" id="selectedcountries" name="selectedcountries[]" data-te-select-init multiple class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                     @foreach ($countries as $country)
                                         <option value="{{ $country['country_name'] }}">{{ $country['country_name'] }}</option>
                                     @endforeach
@@ -86,7 +86,7 @@
                                 <label data-te-select-label-ref>Countries</label>
                             </div>
                             <div class="md:w-2/5" >
-                                <select data-te-select-init multiple>
+                                <select wire:model="selectedStates" wire:change="getCities" id="selectedStates" data-te-select-init multiple class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                                     @if ($states)
                                         @foreach ($states as $country => $countryState)
                                             <option value="" disabled>{{ $country }}</option>
@@ -99,15 +99,15 @@
                                 <label data-te-select-label-ref>States</label>
                             </div>
                             <div class="md:w-2/5">
-                                <select data-te-select-init multiple>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                    <option value="4">Four</option>
-                                    <option value="5">Five</option>
-                                    <option value="6">Six</option>
-                                    <option value="7">Seven</option>
-                                    <option value="8">Eight</option>
+                                <select data-te-select-init multiple class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                                    @if ($cities)
+                                        @foreach ($cities as $state => $stateCities)
+                                            <option value="" disabled>{{ $state }}</option>
+                                            @foreach ($stateCities as $city)
+                                                <option value="{{ $city['city_name'] }}">{{ $city['city_name'] }}</option>
+                                            @endforeach
+                                        @endforeach
+                                    @endif
                                 </select>
                                 <label data-te-select-label-ref>Cities</label>
                             </div>
@@ -168,14 +168,3 @@
         </div>
     </div>
 </div>
-@push('scripts')
-    <script>
-        document.addEventListener('livewire:load', function () {
-            window.livewire.on('selectOptionsUpdated', () => {
-                // Reinitialize the TW Element select component here
-                // You might need to replace 'initializeSelect' with the actual initialization function provided by TW Element
-                initializeSelect();
-            });
-        });
-    </script>
-@endpush

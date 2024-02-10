@@ -20,6 +20,7 @@
 
         <!-- Styles -->
         @livewireStyles
+        @livewireScripts
     </head>
     <body class="font-sans antialiased">
         <x-banner />
@@ -43,7 +44,13 @@
         </div>
 
         @stack('modals')
-
-        @livewireScripts
+        {{-- <script>
+            document.addEventListener('livewire:load', function () {
+                console.log('Livewire loaded successfully');
+            });
+            document.addEventListener('livewire:init', function () {
+                console.log('Livewire component initialized');
+            });
+        </script> --}}
     </body>
 </html>

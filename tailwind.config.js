@@ -13,7 +13,6 @@ export default {
         "./resources/**/*.js",
         "./resources/**/*.vue",
         "./node_modules/flowbite/**/*.js",
-        "./node_modules/tw-elements/dist/js/**/*.js"
     ],
 
     theme: {
@@ -25,9 +24,8 @@ export default {
     },
 
     plugins: [
-        forms, 
-        typography, 
+        forms,
+        typography,
         require('flowbite/plugin'),
-        require("tw-elements/dist/plugin.cjs")
     ],
 };
