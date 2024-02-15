@@ -10,6 +10,7 @@
             <h2 class="font-semibold text-xl text-gray-600">Personal Details</h2>
             <p class="text-gray-500 mb-6">Please fill out all the fields.</p>
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                {{-- Rending the Components/Welcome file --}}
                 <x-welcome :userData="$user" :status="$register_status" :userInfo="$user_info" />
             </div>
         </div>

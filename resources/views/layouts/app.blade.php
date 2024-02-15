@@ -15,12 +15,10 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         <!-- Styles -->
         @livewireStyles
-        @livewireScripts
     </head>
     <body class="font-sans antialiased">
         <x-banner />
@@ -44,13 +42,6 @@
         </div>
 
         @stack('modals')
-        {{-- <script>
-            document.addEventListener('livewire:load', function () {
-                console.log('Livewire loaded successfully');
-            });
-            document.addEventListener('livewire:init', function () {
-                console.log('Livewire component initialized');
-            });
-        </script> --}}
+        @livewireScripts
     </body>
 </html>

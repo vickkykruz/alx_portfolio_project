@@ -53,10 +53,13 @@ class VerifyUserContant extends Component
     {
         $response = $phoneValidationService->vaildatePhone($phoneNumber);
         $statusNumber = $response['valid'];
-        if ($statusNumber == true)
+        if ($statusNumber === true)
         {
             $this->phoneVerifiedStatus = 'true';
-        }else if ($statusNumber == false)
+        }else if ($statusNumber === false)
+        {
+            $this->phoneVerifiedStatus = 'false';
+        }else
         {
             $this->phoneVerifiedStatus = 'false';
         }
@@ -110,9 +113,11 @@ class VerifyUserContant extends Component
 
     public function saveNewNumber()
     {
+        // Retrive user data
+        $user = auth()->user();
         // Update the user mobile number
         DB::table('user_infos')
-        ->where('clientID', '=', $this->userInfo->clientID) // Replace with your actual condition
+        ->where('clientID', '=', $user->bind_id) // Replace with your actual condition
         ->update(['mobileNumber' => $this->insertNewNumber]);
 
         // Return the font-end to default

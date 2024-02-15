@@ -104,7 +104,7 @@
             </button>
           </div>
         @endif
-        
+
         <ul class="w-full divide-y divide-gray-200">
             <li class="pb-3 sm:pb-4 w-full">
                 <div class="flex w-full items-center space-x-4 rtl:space-x-reverse">
@@ -193,7 +193,7 @@
                                                                             <img class="h-5 w-5 me-2" src="https://flagsapi.com/{{ $country['country_short_name'] }}/flat/32.png"> +{{ $country['country_phone_code'] }}
                                                                         </button>
                                                                         <div class="relative w-full">
-                                                                            <input type="text" id="phone-input" name="phone-input" wire:model="insertNewNumber" value="{{ $userInfo->mobileNumber }}" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-0 border border-gray-300 focus:ring-blue-500 focus:border-blue-500" maxlength="10" placeholder="123-456-7890">
+                                                                            <input type="text" id="phone-input" name="phone-input" wire:model="insertNewNumber" value="{{ $userInfo ? $userInfo->mobileNumber : '' }}" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-0 border border-gray-300 focus:ring-blue-500 focus:border-blue-500" maxlength="10" placeholder="123-456-7890">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -212,7 +212,7 @@
                                         </div>
                                     </div>
                                 @else
-                                    <button wire:click="verifyPhoneNumber({{ $userInfo->countryPhoneCode .''. $userInfo->mobileNumber }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Verifiy your Phone Number</button>
+                                    <button wire:click="verifyPhoneNumber({{ $userInfo ? $userInfo->countryPhoneCode .''. $userInfo->mobileNumber : '' }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Verifiy your Phone Number</button>
                                 @endif
                             </div>
                         </div>
