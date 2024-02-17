@@ -20,6 +20,8 @@ use App\Http\Livewire\VerifyUserContant;
 
 // Index Route.
 Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/services', [HomeController::class, 'service'])->name('services');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
 
 // Provider Routes
