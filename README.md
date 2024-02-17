@@ -51,9 +51,11 @@ This command will display the version of the git. Once all that is set, type thi
   So once you are in the directory of that project type the following commamds
   - ```composer install```
   - ```npm install```
-## Laravel Sponsors
+## Usage
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+After a successful installation, run this command ```php artisan serve``` the URL will be given something like this ```http:\\127.0.0.1:8000```, copy that URL, Open your browser and paste that URL. This page will be rendered.
+
+<p align="center"><img src="" alt="Rending Page" /></p>
 
 ### Premium Partners
 
