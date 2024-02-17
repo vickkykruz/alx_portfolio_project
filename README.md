@@ -34,10 +34,6 @@ This web application was built using Laravel and Laravel is a PHP based freamwor
   - Type this command ```node --version``` to check if the nodejs is available
   - if the node is available, then automaically npm is begining install, but to check if npm is install, type this command ```npm --version```.
 
-### Errors
-
-if you encounter like ```this command is not recongized internal and external``` try to locate the director we such command is stored, copy that path and paste that path in your system enviroment variable, then restart your terminal or probably restart your system. if the error doesn't exist, contact the community for assitance. if there was an error installing any of the packages ensure you go there the documentation for solution.
-
 5. <b>Installation of Laravel:</b>
    Composer is a depences used to support Laravel. to install Laravel on your system type is command ```composer global require laravel/installer``` to install Laravel.
 
@@ -51,6 +47,10 @@ This command will display the version of the git. Once all that is set, type thi
   So once you are in the directory of that project type the following commamds
   - ```composer install```
   - ```npm install```
+### Errors
+
+if you encounter like ```this command is not recongized internal and external``` try to locate the director we such command is stored, copy that path and paste that path in your system enviroment variable, then restart your terminal or probably restart your system. if the error doesn't exist, contact the community for assitance. if there was an error installing any of the packages ensure you go there the documentation for solution.
+
 ## Usage
 
 After a successful installation, run this command ```php artisan serve``` the URL will be given something like this ```http:\\127.0.0.1:8000```, copy that URL, Open your browser and paste that URL. This page will be rendered.
