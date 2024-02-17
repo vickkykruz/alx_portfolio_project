@@ -7,21 +7,25 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Shine
+## Imtroduction
 Shine is a Laravel-based web application designed to seamlessly connect recruiters, employees, and organizations. It empowers recruiters to efficiently source desired talent while facilitating real-time interviews, fostering community engagement, and enhancing overall organizational gains.
 
-<p align="center"><img src="" alt="Shine Banner" /></p>
+<p align="center"><img src="https://i.ibb.co/GCBM6w3/Screenshot-2024-02-17-001309-removebg-preview-1.png" alt="Shine Banner" /></p>
 
-Shine is accessible to all devices, powerful, and provides features required for communication among recruiters, employee and organization..
+Shine is accessible to all devices, powerful, and provides features required for communication among recruiters, employee and organization.
+### Author(s)
+1. <a href="https://www.linkedin.com/in/edward-victor-53097324a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Edward Victor Chukwuemeka </a>
 
-## Learning Laravel
+## Installation
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
+This web application was built using Laravel and Laravel is a PHP based freamwork. To install this application on your local machine. Just follow this steps
+1. <b>Open your terminal:</b>
+   First if you are on Windows, click on the search bar, then search for CMD or PowerShell to open the terminal on Windows or if you on MacOs or Linux search for Terminal to open your terminal.
+2. <b>Clone the project:</b>
+   Once you have successfully open your terminal, and you have install git version on your system, if git version is not installed in your system, go to the <a href="">Git Documentation</a> to that it done. To check if you have the git version installed in your system, type this command
+```git --version```
+This command will display the version of the git. Once all that is set, type this command to clone this project on system 
+``` git clone https://github.com/vickkykruz/alx_portfolio_project.git ```
 ## Laravel Sponsors
 
 We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
