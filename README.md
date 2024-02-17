@@ -55,7 +55,7 @@ if you encounter like ```this command is not recongized internal and external```
 
 After a successful installation, run this command ```php artisan serve``` the URL will be given something like this ```http:\\127.0.0.1:8000```, copy that URL, Open your browser and paste that URL. This page will be rendered.
 
-<p align="center"><img src="" alt="Rending Page" /></p>
+<p align="center"><img src="https://i.ibb.co/3zwJYJQ/Screenshot-2024-02-16-161915.png" alt="Rending Page" /></p>
 
 ## Contributing
 
