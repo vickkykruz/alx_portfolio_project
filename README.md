@@ -22,10 +22,23 @@ This web application was built using Laravel and Laravel is a PHP based freamwor
 1. <b>Installation of XAMPP:</b>
    XAMPP is a free open source cross-platform web server developed by Apache, to download this XAMPP, Go to <a href="https://www.apachefriends.org/index.html">Apache Friends website</a> check the for your operating system you are using (i.e. Windows, Linux or MacOS). Download the application and run the application. During the installation process select Apache, MYSQL, PHP and phpMyAdmin, then choose the approtiate directory of your choice. Then click on install. Start the XAMPP application, then select Apache, MySQL. To test the XAMPP server, go to your browser and type <a href="http://localhost">http://localhost</a>.
 2. <b>Installation of Composer</b>
-   To run this project you will composer. To the composer installer, you have to visit <a href="https://getcomposer.org/download">https://getcomposer.org/download</a> select the Operating System that suit your system (Window, MacOS or Linux) Read carefully and follow the instructions to install it on your system. Ensure the installation is completed. 
-3. <b>Open your terminal:</b>
-   After the installions are completed to test it you have to follow this steps. if you are on Windows, click on the search bar, then search for CMD or PowerShell to open the terminal on Windows or if you on MacOs or Linux search for Terminal to open your terminal.
-2. <b>Clone the project:</b>
+   To run this project you will composer. To the composer installer, you have to visit <a href="https://getcomposer.org/download">https://getcomposer.org/download</a> select the Operating System that suit your system (Window, MacOS or Linux) Read carefully and follow the instructions to install it on your system. Ensure the installation is completed.
+3. <b> Installation of Node.js:</b>
+   Node.js is needed to handle the front view of our application. To download node.js installer, then visit <a href="https://nodejs.org">https://nodejs.org</a>. Select the Operation system that fit your system (i.e Windows, MacOS or Linux), Follow the given instructions to get the done.
+4. <b>Open your terminal:</b>
+   After the installions are completed to test it, you have to follow this steps. 
+   - if you are on Windows, click on the search bar, then search for CMD or PowerShell to open the terminal on Windows or if you on MacOs or Linux search for Terminal to open your terminal.
+  - Type this command ```php --version``` to check if PHP is install
+  - Type this command ```mysql --version``` to check if MySQL is available
+  - Type this command ```composer --version``` to check is the composer was installed sucessfully.
+  - Type this command ```node --version``` to check if the nodejs is available
+  - if the node is available, then automaically npm is begining install, but to check if npm is install, type this command ```npm --version```.
+
+### Errors
+
+if you encounter like ```this command is not recongized internal and external``` try to locate the director we such command is stored, copy that path and paste that path in your system enviroment variable, then restart your terminal or probably restart your system. if the error doesn't exist, contact the community for assitance. if there was an error installing any of the packages ensure you go there the documentation for solution.
+5. <b> Installation of Laravel </b>
+5. <b>Clone the project:</b>
    Once you have successfully open your terminal, and you have install git version on your system, if git version is not installed in your system, go to the <a href="">Git Documentation</a> to that it done. To check if you have the git version installed in your system, type this command
 ```git --version```
 This command will display the version of the git. Once all that is set, type this command to clone this project on system 
