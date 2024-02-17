@@ -37,12 +37,20 @@ This web application was built using Laravel and Laravel is a PHP based freamwor
 ### Errors
 
 if you encounter like ```this command is not recongized internal and external``` try to locate the director we such command is stored, copy that path and paste that path in your system enviroment variable, then restart your terminal or probably restart your system. if the error doesn't exist, contact the community for assitance. if there was an error installing any of the packages ensure you go there the documentation for solution.
-5. <b> Installation of Laravel </b>
-5. <b>Clone the project:</b>
+
+5. <b>Installation of Laravel:</b>
+   Composer is a depences used to support Laravel. to install Laravel on your system type is command ```composer global require laravel/installer``` to install Laravel.
+
+6. <b>Clone the project:</b>
    Once you have successfully open your terminal, and you have install git version on your system, if git version is not installed in your system, go to the <a href="">Git Documentation</a> to that it done. To check if you have the git version installed in your system, type this command
 ```git --version```
 This command will display the version of the git. Once all that is set, type this command to clone this project on system 
 ``` git clone https://github.com/vickkykruz/alx_portfolio_project.git ```
+
+7. <b>Install the dependence for the project:</b>
+  So once you are in the directory of that project type the following commamds
+  - ```composer install```
+  - ```npm install```
 ## Laravel Sponsors
 
 We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
