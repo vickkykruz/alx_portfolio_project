@@ -1,13 +1,12 @@
 <div>
     {{-- Because she competes with no one, no one can compete with her. --}}
+
     <div class="mt-2">
         <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
             <div class="text-gray-600">
-                <div class="user-img" style="display:flex; justify-content:center" >
-                    <svg style="width: 270px; height: 270px;" version="1.0" xmlns="http://www.w3.org/2000/svg"
-                        width="500.000000pt" height="500.000000pt" viewBox="0 0 500.000000 500.000000"
-                        preserveAspectRatio="xMidYMid meet">
-
+                <div class="user-img" style="display:flex; justify-content:center">
+                    <svg style="width: 100%; max-width: 270px; height: auto;" version="1.0" xmlns="http://www.w3.org/2000/svg" width="500.000000pt" height="500.000000pt" viewBox="0 0 500.000000 500.000000" preserveAspectRatio="xMidYMid meet">
+                        <!-- Your SVG Code Here -->
                         <g transform="translate(0.000000,500.000000) scale(0.100000,-0.100000)"
                         fill="#000000" stroke="none">
                         <path d="M3899 3636 c-2 -3 -42 -9 -87 -15 -93 -12 -122 -24 -122 -50 0 -27
@@ -56,6 +55,8 @@
 
             <div class="lg:col-span-2 mt-5">
                 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+                    <!-- Your Form Fields Here -->
+
                     <div class="md:col-span-5 mb-2">
                         <label for="message" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Personal Bio</label>
                         <textarea id="message" rows="3" maxlength="255" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Write your thoughts here..."></textarea>
@@ -66,50 +67,21 @@
                         <small class="text-xs text-gray-900" id="file_input_help">PDF, DOC (MAX. 800x400px).</small>
                     </div>
 
-                    <div class="md:col-span-5 mb-2">
-                        @foreach ($selectedcountries as $selectedCountry)
-                            {{ $selectedCountry }},
-                        @endforeach
-                        <h1>Selected Option: {{ $selectedOption }}</h1>
-                    </div>
-
                     {{-- Job Prefencens --}}
                     <div class="md:col-span-5 mb-2">
                         <h5 class="text-sm mb-2 font-semibold text-gray-900 card-title">Preferred Job Location(s)</h5>
                         <div class="flex flex-row justify-around items-center mb-3 gap-3 w-full">
                             <div class="md:w-2/5">
-                                <select wire:model="selectedcountries" id="selectedcountries" name="selectedcountries[]" data-te-select-init multiple class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                    @foreach ($countries as $country)
-                                        <option value="{{ $country['country_name'] }}">{{ $country['country_name'] }}</option>
-                                    @endforeach
-                                </select>
-                                <label data-te-select-label-ref>Countries</label>
+                                <label for="message" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Country(ies)</label>
+                                <textarea name="selectedcountries" id="countries" x-on:input.debounce.500ms="emitInputEvent($event.target.value)" rows="3" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Type the countries of your choice..."></textarea>
                             </div>
                             <div class="md:w-2/5" >
-                                <select wire:model="selectedStates" wire:change="getCities" id="selectedStates" data-te-select-init multiple class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                    @if ($states)
-                                        @foreach ($states as $country => $countryState)
-                                            <option value="" disabled>{{ $country }}</option>
-                                            @foreach ($countryState as $state)
-                                                <option value="{{ $state['state_name'] }}">{{ $state['state_name'] }}</option>     
-                                            @endforeach    
-                                        @endforeach
-                                    @endif
-                                </select>
-                                <label data-te-select-label-ref>States</label>
+                                <label for="message" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">State(s)</label>
+                                <textarea id="states" rows="3" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Type the states of your choice..."></textarea>
                             </div>
                             <div class="md:w-2/5">
-                                <select data-te-select-init multiple class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                                    @if ($cities)
-                                        @foreach ($cities as $state => $stateCities)
-                                            <option value="" disabled>{{ $state }}</option>
-                                            @foreach ($stateCities as $city)
-                                                <option value="{{ $city['city_name'] }}">{{ $city['city_name'] }}</option>
-                                            @endforeach
-                                        @endforeach
-                                    @endif
-                                </select>
-                                <label data-te-select-label-ref>Cities</label>
+                                <label for="message" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Citie(s)</label>
+                                <textarea id="cities" rows="3" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Type the cities of your choice..."></textarea>
                             </div>
                         </div>
                     </div>
@@ -147,10 +119,6 @@
                         </div>
                     </div>
 
-                    {{-- <div class="md:col-span-5 mb-2">
-
-                    </div> --}}
-
                     {{-- Preferred Or Desired Job --}}
                     <div class="md:col-span-5 mb-2">
                         {{-- @livewire('preferred-jobs') --}}
@@ -160,11 +128,23 @@
                 </div>
             </div>
         </div>
-        {{-- Submit Button --}}
-        <div class="md:col-span-5 mt-5 text-right">
+
+        <!-- Submit Button -->
+        <div class="md:col-span-5 mt-5 text-center lg:text-right">
             <div class="inline-flex items-end">
                 <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
             </div>
         </div>
     </div>
 </div>
+@push('scripts')
+<script>
+    document.addEventListener('livewire:load', function () {
+        Livewire.hook('message.sent', (message, component) => {
+            if (message.updateQueue[0].payload.event === 'input') {
+                window.dispatchEvent(new CustomEvent('countries-updated', { detail: message.updateQueue[0].payload.value }));
+            }
+        });
+    });
+</script>
+@endpush

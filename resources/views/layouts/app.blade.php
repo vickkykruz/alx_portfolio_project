@@ -13,11 +13,23 @@
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.css" rel="stylesheet" type="text/css" />
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify@4.20.0"></script>
 
         <!-- Styles -->
+        <style>
+            .tagify+input{
+                display: block !important;
+                position: static !important;
+                transform: none !important;
+                width: 90%;
+                margin-top: 1em;
+                padding: .5em;
+            }
+        </style>
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
